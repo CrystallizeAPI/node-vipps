@@ -1,12 +1,12 @@
-import fetch from 'cross-fetch'
-import initiatePayment from './lib/initiate-payment'
-import capture from './lib/capture'
-import getAccessToken from './lib/access-token'
+const fetch = require('cross-fetch')
+const initiatePayment = require('./lib/initiate-payment')
+const capture = require('./lib/capture')
+const getAccessToken = require('./lib/access-token')
 
 const URL_LIVE = 'https://api.vipps.no'
 const URL_TEST = 'https://apitest.vipps.no'
 
-export default class VippsClient {
+module.exports = class VippsClient {
   constructor (config) {
     this.config = {
       ...config,
@@ -14,10 +14,10 @@ export default class VippsClient {
     }
   }
 
-  async fetch ({ uri, headers = {}, body, method = 'POST' }) {
-    try {
-      const { access_token } = await this.getAccessToken()
+  async fetch ({ uri, body, method = 'POST' }) {
+    const { access_token } = await this.getAccessToken()
 
+    try {
       const options = {
         headers: {
           'Content-Type': 'application/json',
@@ -38,11 +38,11 @@ export default class VippsClient {
     }
   }
 
-  initiatePayment (order) {
+  initiatePayment ({ order }) {
     return initiatePayment({ client: this, order })
   }
 
-  capture (orderId, captureBody) {
+  capture ({ orderId, captureBody }) {
     return capture({ client: this, orderId, captureBody })
   }
 
