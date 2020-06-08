@@ -1,4 +1,5 @@
 const fetch = require('cross-fetch')
+const ow = require('ow')
 const initiatePayment = require('./lib/initiate-payment')
 const capture = require('./lib/capture')
 const refund = require('./lib/refund')
@@ -10,6 +11,10 @@ const URL_TEST = 'https://apitest.vipps.no'
 
 module.exports = class VippsClient {
   constructor (config) {
+    ow(config.id, ow.string)
+    ow(config.secret, ow.string)
+    ow(config.subscriptionId, ow.string)
+
     this.config = {
       ...config,
       baseUrl: config.testDrive ? URL_TEST : URL_LIVE

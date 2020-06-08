@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/CrystallizeAPI/node-vipps.git"
   },
-  "keywords": ["vipps", "crystallize", "Vipps", "sdk"],
+  "keywords": [
+    "vipps",
+    "crystallize",
+    "Vipps",
+    "sdk"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
@@ -27,6 +32,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "ow": "^0.17.0",
     "release-it": "^13.6.2"
   },
   "devDependencies": {
