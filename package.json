@@ -4,18 +4,15 @@
   "description": "Node Vipps SDK for easy Vipps integration",
   "main": "index.js",
   "scripts": {
-    "release": "release-it"
+    "release": "release-it",
+    "lint": "eslint",
+    "prepush": "yarn lint"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CrystallizeAPI/node-vipps.git"
   },
-  "keywords": [
-    "vipps",
-    "crystallize",
-    "Vipps",
-    "sdk"
-  ],
+  "keywords": ["vipps", "crystallize", "Vipps", "sdk"],
   "author": "",
   "license": "MIT",
   "bugs": {
@@ -33,6 +30,7 @@
     "release-it": "^13.6.2"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "husky": "^4.2.5"
   }
 }
