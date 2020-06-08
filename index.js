@@ -49,12 +49,12 @@ module.exports = class VippsClient {
     return initiatePayment({ client: this, order })
   }
 
-  capture ({ orderId, captureBody }) {
-    return capture({ client: this, orderId, captureBody })
+  capture ({ orderId, body }) {
+    return capture({ client: this, orderId, body })
   }
 
-  refund ({ orderId, refundBody }) {
-    return refund({ client: this, orderId, refundBody })
+  refund ({ orderId, body }) {
+    return refund({ client: this, orderId, body })
   }
 
   getAccessToken () {
