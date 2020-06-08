@@ -20,17 +20,32 @@ const client = new VippsClient({
 +testDrive: isProd ? false : true
 });
 
-// Initiate a payment
+// Initiate a payment<br/>
+
+```
 await client.initiatePayment({order:VippsCheckoutModel});
+```
 
-// Capture a payment
+<br/>// Capture a payment<br/>
+
+```
 await client.capture({ orderId: VippsOrderId, body: VippsCaptureBodyModel });
+```
 
-// Refund a payment
+<br/>// Refund a payment<br/>
+
+```
 await client.refund({ orderId: VippsOrderId, body: VippsRefundBodyModel });
+```
 
-// Get order payment details
+<br/>// Get order payment details<br/>
+
+```
 await client.getOrderDetails({ orderId: VippsOrderId});
+```
 
-// Get an access token
+<br/>// Get an access token<br/>
+
+```
 await client.getAccessToken();
+```
