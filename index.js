@@ -1,7 +1,9 @@
 const fetch = require('cross-fetch')
 const initiatePayment = require('./lib/initiate-payment')
 const capture = require('./lib/capture')
+const refund = require('./lib/refund')
 const getAccessToken = require('./lib/access-token')
+const getOrderDetails = require('./lib/order-details')
 
 const URL_LIVE = 'https://api.vipps.no'
 const URL_TEST = 'https://apitest.vipps.no'
@@ -46,7 +48,15 @@ module.exports = class VippsClient {
     return capture({ client: this, orderId, captureBody })
   }
 
+  refund ({ orderId, refundBody }) {
+    return refund({ client: this, orderId, refundBody })
+  }
+
   getAccessToken () {
     return getAccessToken({ client: this })
+  }
+
+  getOrderDetails ({ orderId }) {
+    return getOrderDetails({ client: this, orderId })
   }
 }
