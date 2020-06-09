@@ -12,13 +12,16 @@ yarn add @crystallize/node-vipps
 
 ## Usage
 
-// Initiate the client
+// Initiate the client<br/>
+
+```
 const client = new VippsClient({
 +id: "MY_VIPPS_CLIENT_ID",
 +secret: "MY_VIPPS_CLIENT_SECRET",
 +subscriptionId: "MY_VIPPS_SUB_KEY",
 +testDrive: isProd ? false : true
 });
+```
 
 // Initiate a payment<br/>
 
